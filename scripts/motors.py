@@ -8,7 +8,16 @@ def callback(message):
             print >> lm, str(message.data[0])
             print >> rm, str(message.data[1])
 
+def stop_motor():
+    for s in [ "_raw_l0" , "_raw_r0", "en0" ]:
+        with open('/dev/rtmotor' + s,'w') as f:
+            print >> f, "0"
+
 if __name__ == '__main__':
+    with open('/dev/rtmotoren0','w') as f:
+        print >> f, "1"
+
     rospy.init_node('motor')
     sub = rospy.Subscriber('motor_raw', Int16MultiArray, callback)
+    rospy.on_shutdown(stop_motor)
     rospy.spin()
