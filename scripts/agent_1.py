@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# vim:fileencoding=utf-8
 import rospy
 from std_msgs.msg import Int16MultiArray
 
