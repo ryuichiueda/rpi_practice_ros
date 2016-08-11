@@ -9,8 +9,8 @@ def getrange(message):
 
 if __name__ == '__main__':
     ranges = [0,0,0,0]
-    pubdata = Int16MultiArray()
-    pubdata.data = [1000,1000]
+    pubdata = Int16MultiArray() #モータに値を投げるためのインスタンス
+    pubdata.data = [1000,1000] #初期値（この例では変化させず）
 
     rospy.init_node('motor')
     sub = rospy.Subscriber('lightsensors', Int16MultiArray, getrange)
@@ -19,5 +19,5 @@ if __name__ == '__main__':
     rate = rospy.Rate(10)
     while not rospy.is_shutdown():
         print ranges
-        pub.publish(pubdata)
+        pub.publish(pubdata) #何度も同じデータを投げているだけ
         rate.sleep()
