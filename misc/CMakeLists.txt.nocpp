@@ -5,7 +5,6 @@ project(rpi_ros_practice)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
   rospy
   std_msgs
 )
@@ -102,7 +101,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES rpi_ros_practice
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  CATKIN_DEPENDS rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,8 +117,8 @@ include_directories(
 )
 
 ## Declare a C++ library
-#  add_library(agent
-#  src/${PROJECT_NAME}/rpi_ros_practice.cpp
+# add_library(rpi_ros_practice
+#   src/${PROJECT_NAME}/rpi_ros_practice.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -128,14 +127,16 @@ include_directories(
 # add_dependencies(rpi_ros_practice ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(agent src/agent.cpp)
+# add_executable(rpi_ros_practice_node src/rpi_ros_practice_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(agent ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(rpi_ros_practice_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(agent ${catkin_LIBRARIES} )
+# target_link_libraries(rpi_ros_practice_node
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
