@@ -1,0 +1,7 @@
+<launch>
+  <group ns="practice">
+    <node pkg="rpi_ros_practice" name="lightsensors" type="lightsensors.py" required="true" />
+    <node pkg="rpi_ros_practice" name="motors" type="motors.py" required="true" />
+    <node pkg="rpi_ros_practice" name="agent" type="agent" output="screen" required="true" />
+  </group>
+</launch>

@@ -12,7 +12,7 @@ def getrange(message):
 
 if __name__ == '__main__':
     ranges = [0,0,0,0] #最新のセンサ値を入れるためのリスト
-    rospy.init_node('motor')
+    rospy.init_node('agent')
     sub = rospy.Subscriber('lightsensors', Int16MultiArray, getrange)
 
     rate = rospy.Rate(10)

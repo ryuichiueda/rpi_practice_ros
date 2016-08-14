@@ -12,7 +12,7 @@ if __name__ == '__main__':
     pubdata = Int16MultiArray()
     pubdata.data = [0,0]
 
-    rospy.init_node('motor')
+    rospy.init_node('agent')
     sub = rospy.Subscriber('lightsensors', Int16MultiArray, getrange)
     pub = rospy.Publisher('motor_raw', Int16MultiArray, queue_size=1)
 
@@ -35,8 +35,8 @@ if __name__ == '__main__':
         #急に周波数を増加すると脱調するので制限
         diff_limit = 20
         if math.fabs(p_freq) > math.fabs(cur_freq) + diff_limit:
-            if p_freq < 0: p_freq -= diff_limit
-            if p_freq > 0: p_freq += diff_limit
+            if p_freq < 0:  p_freq -= diff_limit
+            else:           p_freq += diff_limit
 
         #出力
         pubdata.data = [p_freq,p_freq]

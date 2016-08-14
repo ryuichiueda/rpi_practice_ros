@@ -12,7 +12,7 @@ if __name__ == '__main__':
     pubdata = Int16MultiArray() #モータに値を投げるためのインスタンス
     pubdata.data = [1000,1000] #初期値（この例では変化させず）
 
-    rospy.init_node('motor')
+    rospy.init_node('agent')
     sub = rospy.Subscriber('lightsensors', Int16MultiArray, getrange)
     pub = rospy.Publisher('motor_raw', Int16MultiArray, queue_size=1)
 
