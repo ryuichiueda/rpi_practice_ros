@@ -6,20 +6,20 @@ from rpi_ros_practice.msg import MotorFreqs
 from rpi_ros_practice.srv import SwitchMotors
 
 def callback_motor_sw(message):
-        enfile = '/dev/rtmotoren0' 
-        try:
-            with open(enfile,'w') as f:
-                if message.command == "ON":
-                    print >> f, '1'
-                    return "ON"
-                else:
-                    print >> f, '0'
-                    return "OFF"
-        except:
-            rospy.logerr("cannot write to " + enfile)
-            return "UNKNOWN"
-
+    enfile = '/dev/rtmotoren0' 
+    try:
+        with open(enfile,'w') as f:
+            if message.command == "ON":
+                print >> f, '1'
+                return "ON"
+            else:
+                print >> f, '0'
+                return "OFF"
+    except:
+        rospy.logerr("cannot write to " + enfile)
         return "UNKNOWN"
+
+    return "UNKNOWN"
 
 #モータへの指令値を他のノードから受け取った時のコールバック関数
 def callback(message):
