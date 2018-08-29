@@ -10,9 +10,9 @@ def getrange(message):
         ranges[i] = message.data[i]
 
 def switch_motors(onoff):
-    rospy.wait_for_service('/practice/switch_motors')
+    rospy.wait_for_service('/switch_motors')
     try:
-        p = rospy.ServiceProxy('/practice/switch_motors', SwitchMotors)
+        p = rospy.ServiceProxy('/switch_motors', SwitchMotors)
         res = p(onoff)
         return res.result
     except rospy.ServiceException, e:
